@@ -1,0 +1,49 @@
+{
+  "name": "tender-clarification-system",
+  "version": "1.0.0",
+  "description": "AI-powered tender clarification management system using Claude API",
+  "private": true,
+  "proxy": "http://localhost:5000",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "lucide-react": "^0.263.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.9",
+    "tailwindcss": "^4.1.0"
+  },
+  "scripts": {
+    "start": "npm run tailwind:build && concurrently -k \"npm run start:server\" \"npm run tailwind:watch\" \"npm run start:client\"",
+    "start:client": "react-scripts start",
+    "start:server": "nodemon server/index.js",
+    "tailwind:build": "npx @tailwindcss/cli -i ./src/tailwind.input.css -o ./src/tailwind.generated.css",
+    "tailwind:watch": "npx @tailwindcss/cli -i ./src/tailwind.input.css -o ./src/tailwind.generated.css --watch",
+    "tailwind:build:minify": "npx @tailwindcss/cli -i ./src/tailwind.input.css -o ./src/tailwind.generated.css --minify",
+    "build": "npm run tailwind:build:minify && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
