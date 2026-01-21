@@ -51,7 +51,7 @@ const App = () => {
   };
 
   const callClaude = async (payload) => {
-    const response = await fetch("/api/anthropic/messages", {
+    const response = await fetch("/.netlify/functions/anthropic", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
